@@ -1,4 +1,4 @@
-# MimoTomo
+<img width="2812" height="1544" alt="image" src="https://github.com/user-attachments/assets/a7f20d5b-8daa-4f1f-ba95-2c069060d8f1" />
 
 **mimotomo** is a little bunny that lives on your screen and reads the emotional weight of what you type in real time. it doesn't respond. it doesn't give advice. it just feels alongside you.
 
