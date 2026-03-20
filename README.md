@@ -41,4 +41,4 @@ and open `http://localhost:3000`, click anywhere, start writing.
 (you can get a token at [huggingface.co/settings/tokens](https://huggingface.co/settings/tokens)). it still works without one because it falls back to AFINN lexicon scoring, but it's less nuanced.
 
 **call for artists**
-- if you're an artist and want to help me make the bunny cuter, i would SO appreciate you. [Please lmk!!](https://twitter.com/emzraline)
+- if you're an artist and want to help me make the bunny cuter, i would SO appreciate you. [please lmk!!](https://twitter.com/emzraline)
