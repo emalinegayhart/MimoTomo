@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>feels with you</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/sprite.css" />
+</head>
+<body>
+
+  <div class="scene">
+
+    <!-- ── Sprite ─────────────────────────────────────────── -->
+    <div class="sprite-wrap">
+      <div id="sprite" class="sprite emotion-neutral">
+
+        <div class="sprite__tail"></div>
+
+        <div class="sprite__body">
+          <div class="sprite__ear sprite__ear--left">
+            <div class="sprite__ear-inner"></div>
+          </div>
+          <div class="sprite__ear sprite__ear--right">
+            <div class="sprite__ear-inner"></div>
+          </div>
+
+          <div class="sprite__face">
+            <div class="sprite__brow sprite__brow--left"></div>
+            <div class="sprite__brow sprite__brow--right"></div>
+            <div class="sprite__eye sprite__eye--left">
+              <div class="sprite__sclera"></div>
+            </div>
+            <div class="sprite__eye sprite__eye--right">
+              <div class="sprite__sclera"></div>
+            </div>
+            <div class="sprite__nose"></div>
+            <div class="sprite__mouth"></div>
+          </div>
+
+          <div class="sprite__blush sprite__blush--left"></div>
+          <div class="sprite__blush sprite__blush--right"></div>
+          <div class="sprite__arm sprite__arm--left"></div>
+          <div class="sprite__arm sprite__arm--right"></div>
+        </div>
+
+        <div class="sprite__shadow"></div>
+        <div class="sprite__tears" aria-hidden="true"></div>
+        <div class="sprite__particles" aria-hidden="true"></div>
+      </div>
+    </div>
+
+    <!-- ── Wordmark ──────────────────────────────────────── -->
+    <a class="wordmark" href="https://github.com/emalinegayhart/MimoTomo" target="_blank" rel="noopener">mimotomo</a>
+
+    <!-- ── Wall canvas — text fragments land here ───────── -->
+    <div id="wall-canvas" class="wall-canvas" aria-live="polite"></div>
+
+    <!-- ── Hint ──────────────────────────────────────────── -->
+    <div id="wall-hint" class="wall-hint">click anywhere and start writing…</div>
+
+    <!-- ── Emotion badge ──────────────────────────────────── -->
+    <div id="emotion-badge" class="emotion-badge hidden">
+      <span id="badge-emotion">neutral</span>
+      <span id="badge-confidence"></span>
+    </div>
+
+    <!-- hidden input — captures all typing ───────────────── -->
+    <textarea id="input" autocomplete="off" spellcheck="false" aria-hidden="true" tabindex="-1"></textarea>
+
+  </div>
+
+  <script src="js/socket.js"></script>
+  <script src="js/sprite.js"></script>
+  <script src="js/idle.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
