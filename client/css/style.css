@@ -94,6 +94,26 @@ html, body {
 }
 
 /* ─────────────────────────────────────────────────────────
+   GitHub link — bottom-left corner
+   ───────────────────────────────────────────────────────── */
+
+.github-link {
+  position: fixed;
+  bottom: 28px;
+  left: 36px;
+  z-index: 10;
+  color: rgba(210, 200, 255, 0.35);
+  pointer-events: all;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  line-height: 0;
+}
+
+.github-link:hover {
+  color: rgba(210, 200, 255, 0.8);
+}
+
+/* ─────────────────────────────────────────────────────────
    Wall canvas — full-screen layer where text fragments live
    ───────────────────────────────────────────────────────── */
 
