@@ -16,6 +16,10 @@ as you type, sentiment analysis runs on each line and the sprite reacts physical
 - sprite - pure css. no images. every expression (droopy ears, furrowed brows, sclera tracking toward your cursor) is keyframes and transforms
 - idle / ambient ai - a timer-based state machine. at 5s, expression is neutral. at 15s it looks around. at 30s it yawns. at 60s it sleeps. wakes with a little startle when you come back
 
+
+**future plan:**
+- ability to add accessories or items to/around your mimotomo
+- move away from web app to screen analysis overlay
 **test plan:**
 
 ```bash
