@@ -20,6 +20,7 @@ as you type, sentiment analysis runs on each line and the sprite reacts physical
 **future plan:**
 - ability to add accessories or items to/around your mimotomo
 - move away from web app to screen analysis overlay
+
 **test plan:**
 
 ```bash
