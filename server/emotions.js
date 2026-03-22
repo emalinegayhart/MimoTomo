@@ -40,11 +40,17 @@ const AFINN_KEYWORD_OVERRIDES = {
   surprised:['wow','omg','oh my god','whoa','wait','no way','seriously','unbelievable','shocked'],
 };
 
+// Whole-word match — avoids e.g. "though" matching "ugh", "mandatory" matching "mad"
+function containsWord(keyword, text) {
+  const escaped = keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return new RegExp(`(?<![a-z])${escaped}(?![a-z])`, 'i').test(text);
+}
+
 function mapAfinnToEmotion(score, text) {
   const lower = text.toLowerCase();
 
   for (const [emotion, keywords] of Object.entries(AFINN_KEYWORD_OVERRIDES)) {
-    const hits = keywords.filter(k => lower.includes(k)).length;
+    const hits = keywords.filter(k => containsWord(k, lower)).length;
     if (hits > 0) {
       return { emotion, confidence: parseFloat(Math.min(0.95, 0.6 + hits * 0.1).toFixed(2)) };
     }
