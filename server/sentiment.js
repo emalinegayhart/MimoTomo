@@ -4,8 +4,6 @@ const HF_TOKEN = process.env.HF_TOKEN;
 const HF_MODEL = 'j-hartmann/emotion-english-distilroberta-base';
 const HF_URL   = `https://api-inference.huggingface.co/models/${HF_MODEL}`;
 
-// ── HuggingFace Inference (primary) ───────────────────────
-
 async function analyzeWithHf(text) {
   const res = await fetch(HF_URL, {
     method: 'POST',
@@ -33,7 +31,7 @@ async function analyzeWithHf(text) {
   };
 }
 
-// ── AFINN fallback (no token / HF down) ───────────────────
+// AFINN fallback (no token / hf down)
 
 let SentimentLib;
 function getAfinn() {
@@ -50,7 +48,7 @@ function analyzeWithAfinn(text) {
   };
 }
 
-// ── Public interface ───────────────────────────────────────
+// public interface
 
 async function analyze(text) {
   if (!text || !text.trim()) {
@@ -58,7 +56,8 @@ async function analyze(text) {
   }
 
   if (HF_TOKEN) {
-    // Retry once — HF free tier goes cold and the first request often times out
+    // retry once — hf free tier goes cold and the first request often times out
+    // to do: upgrade from free tier
     for (let attempt = 1; attempt <= 2; attempt++) {
       try {
         return await analyzeWithHf(text);
