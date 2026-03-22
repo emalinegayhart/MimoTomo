@@ -8,11 +8,10 @@ as you type, sentiment analysis runs on each line and the sprite reacts physical
 
 **technicals:**
 - server - node.js + express + ws
-- sentiment - distilroberta (HF inference API) + AFINN fallback
+- sentiment - [`j-hartmann/emotion-english-distilroberta-base`](https://huggingface.co/j-hartmann/emotion-english-distilroberta-base) via hugging face inference API. understands context, negation, tone. falls back to AFINN lexicon via [`sentiment`](https://www.npmjs.com/package/sentiment) npm package if no token is set
 - frontend - vanilla js, no framework
 - font - [caveat](https://fonts.google.com/specimen/Caveat)
 - websockets - keystrokes stream to the server in real time, emotions stream back
-- roberta - `j-hartmann/emotion-english-distilroberta-base` via hugging face inference API. understands context, negation, tone. falls back to AFINN lexicon if no token is set
 - sprite - pure css. no images. every expression (droopy ears, furrowed brows, sclera tracking toward your cursor) is keyframes and transforms
 - idle / ambient ai - a timer-based state machine. at 5s, expression is neutral. at 15s it looks around. at 30s it yawns. at 60s it sleeps. wakes with a little startle when you come back
 
