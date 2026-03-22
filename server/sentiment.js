@@ -58,11 +58,16 @@ async function analyze(text) {
   }
 
   if (HF_TOKEN) {
-    try {
-      return await analyzeWithHf(text);
-    } catch (err) {
-      console.warn('[sentiment] HF API failed, falling back to AFINN:', err.message);
+    // Retry once — HF free tier goes cold and the first request often times out
+    for (let attempt = 1; attempt <= 2; attempt++) {
+      try {
+        return await analyzeWithHf(text);
+      } catch (err) {
+        console.warn(`[sentiment] HF API attempt ${attempt} failed: ${err.message}`);
+        if (attempt === 1) await new Promise(r => setTimeout(r, 1000));
+      }
     }
+    console.warn('[sentiment] HF API unavailable, falling back to AFINN');
   }
 
   return analyzeWithAfinn(text);
