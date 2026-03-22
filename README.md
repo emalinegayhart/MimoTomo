@@ -19,7 +19,7 @@ as you type, sentiment analysis runs on each line and the sprite reacts physical
 
 **future plan:**
 - ability to add accessories or items to/around your mimotomo
-- extend capability to screen analysis overlay
+- extend capability to screen analysis overlay (using C)
 
 **test plan:**
 
