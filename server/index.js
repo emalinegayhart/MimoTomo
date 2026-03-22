@@ -7,7 +7,7 @@ const { analyze } = require('./sentiment');
 
 const PORT = process.env.PORT || 3000;
 
-// --- HTTP server ---
+// HTTP server
 const app = express();
 app.use(express.static(path.join(__dirname, '../client')));
 
@@ -17,13 +17,12 @@ app.get('/', (req, res) => {
 
 const server = http.createServer(app);
 
-// --- WebSocket server ---
+// WebSocket server
 const wss = new WebSocketServer({ server });
 
 wss.on('connection', (ws) => {
   console.log('[ws] client connected');
 
-  // Keepalive ping every 30s
   const pingInterval = setInterval(() => {
     if (ws.readyState === ws.OPEN) {
       ws.send(JSON.stringify({ type: 'ping' }));
