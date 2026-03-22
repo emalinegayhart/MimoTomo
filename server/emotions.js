@@ -1,15 +1,8 @@
-// Map HuggingFace emotion labels → sprite emotion states
-
-// j-hartmann/emotion-english-distilroberta-base outputs these 7 labels:
-// anger, disgust, fear, joy, neutral, sadness, surprise
-
 function mapHfToEmotion(label, score) {
   switch (label) {
     case 'joy':
-      // high confidence joy → excited, moderate → happy
       return { emotion: score > 0.82 ? 'excited' : 'happy', confidence: score };
     case 'sadness':
-      // very high sadness → distressed
       return { emotion: score > 0.85 ? 'distressed' : 'sad', confidence: score };
     case 'anger':
       return { emotion: 'angry', confidence: score };
@@ -25,7 +18,7 @@ function mapHfToEmotion(label, score) {
   }
 }
 
-// ── AFINN fallback (used when HF_TOKEN is not set) ─────────
+// AFINN fallback
 
 const AFINN_THRESHOLDS = {
   DISTRESSED: -4,
@@ -40,7 +33,6 @@ const AFINN_KEYWORD_OVERRIDES = {
   surprised:['wow','omg','oh my god','whoa','wait','no way','seriously','unbelievable','shocked'],
 };
 
-// Whole-word match — avoids e.g. "though" matching "ugh", "mandatory" matching "mad"
 function containsWord(keyword, text) {
   const escaped = keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   return new RegExp(`(?<![a-z])${escaped}(?![a-z])`, 'i').test(text);
