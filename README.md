@@ -18,6 +18,7 @@ as you type, sentiment analysis runs on each line and the sprite reacts physical
 
 **future plan:**
 - further improve ability to detect sentiment with more nuanced statements
+- add toggle-able diary log
 - ability to add accessories or items to/around your mimotomo
 - extend capability to screen analysis overlay (using C)
 
